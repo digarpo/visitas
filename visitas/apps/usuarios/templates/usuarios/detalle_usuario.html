@@ -1,0 +1,117 @@
+{% extends "citas/base_citas.html" %}
+
+{% block title %}Panel{% endblock title %}
+
+{% block content %}
+
+    {% include "citas/panel/navbar.html" %}
+
+    <div class="container">
+
+        <div class="page-header">
+            <h4>
+
+                </a>
+                <strong>user: {{ user.username }}</strong>
+            </h4>
+        </div><!-- page-header -->
+
+        <div class="row">
+            
+
+
+            <div class="col-md-9">
+
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>Nombre</th>
+                            <td>{{ user.first_name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Apellido</th>
+                            <td>{{ user.last_name }}</td>
+                        </tr>
+                        <tr>
+                            <th>email</th>
+                            <td>{{ user.email}}</td>
+                        </tr>
+                        <tr>
+
+                            <tr>
+                            <th>Empresa</th>
+                            <td>{{ user.name }}</td>
+                            </tr>
+                            <tr>
+                            <th>Contacto</th>
+                            <td>{{ user.contact }}</td>
+                            </tr>
+                            <tr>
+                            <th>Dirección</th>
+                            <td>{{ user.address }}</td>
+                            </tr>
+                            <tr>
+                            <th>Teléfono</th>
+                            <td>{{ user.phone }}</td>
+                            </tr>
+                            <tr>
+                            <th>Teléfono Móvil</th>
+                            <td>{{ user.mobile }}</td>
+                            </tr>
+                            <tr>
+                            <th>CIF</th>
+                            <td>{{ user.cif }}</td>
+                            </tr>
+                            <tr>
+                            <th>Actividad</th>
+                            <td>{{ user.activity }}</td>
+                            </tr>
+                            <tr>
+                            <th>Fecha de Revision</th>
+                            <td>{{ user.revision }}</td>
+                            </tr>
+                            <tr>
+                            <th>Es subcontrata</th>
+                            <td>{{ user.subcontrate }}</td>
+                            </tr>
+
+                        </tr>
+                        <tr>
+                            {% if user.is_worker = true %}
+                            <th>Nombre del trabajador</th>
+                            <td>{{ user.nameworker }}</td>
+                            <th>Fecha de TA2</th>
+                            <td>{{ user.TA2_date }}</td>
+                            <th>Fecha médica</th>
+                            <td>{{ user.medical }}</td>
+                            <th>Fecha de información</th>
+                            <td>{{ user.information }}</td>
+                            <th>Fecha de formación</th>
+                            <td>{{ user.formation_date }}</td>
+                            <th>Fecha de EPI</th>
+                            <td>{{ user.EPI_date }}</td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            {% if user.is_centralita %}
+                            <th>Planta</th>
+                            <td>{{ user.plant }}</td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            {% if user.is_user %}
+                            <th>Departamento</th>
+                            <td>{{ user.department }}</td>
+                            {% endif %}
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div><!-- col-md-12 -->
+
+        </div><!-- /row -->
+
+    </div><!-- /container -->
+
+{% endblock content %}

@@ -1,0 +1,71 @@
+{% extends "citas/base_citas.html" %}
+
+{% block title %}Sign-up / Login{% endblock title %}
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="row">
+            
+            <div class="col-md-12">
+
+                <h1 class="text-center">Acceso al sistema</h1>
+                <p>&nbsp;</p>
+
+            </div><!-- col-md-12 -->
+
+        </div><!-- /row -->
+
+        <div class="row">
+            
+           <!-- <div class=" col-md-12 text-center">
+
+                <div class="col-md-push-3 col-md-3 text-center">
+                    <p>
+                        <a href="#" class="btn btn-primary btn-lg btn-block">Regitrate con Facebook</a>
+                        <a href="#" class="btn btn-danger btn-lg btn-block">Regitrate con Google+</a>
+                    </p>
+                    
+                    <hr>
+
+                    <form role="form" method="POST">{% csrf_token %}
+                        <p class="text-center">Registrate y empieza a crear y compartir tus eventos:</p>
+                        <div class="form-group">
+                            {{ user_register.username }}
+                            {{ user_register.username.errors }}
+                        </div>
+                        <div class="form-group">
+                            {{ user_register.email }}
+                            {{ user_register.email.errors }}
+                        </div>
+                        <div class="form-group">
+                            {{ user_register.password }}
+                            {{ user_register.password.errors }}
+                        </div>
+                        <button type="submit" name="register_form" class="btn btn-success btn-lg btn-block">Sign up</button>
+                    </form>
+                </div>&lt;!&ndash; col-md-6 &ndash;&gt;
+-->
+                <div class="col-sm-6 col-sm-offset-3">
+                    <form role="form" method="POST">{% csrf_token %}
+                        <p class="text-center">Accede al centro de coordinación</p>
+                        <div class="form-group">
+                            {{ login_form.username }}
+                            {{ login_form.username.errors }}
+                        </div>
+                        <div class="form-group">
+                            {{ login_form.password }}
+                            {{ login_form.password.errors }}
+                        </div>
+                        <button type="submit" name="login_form" class="btn btn-success btn-lg btn-block">Accede</button>
+                    </form>
+                </div><!-- col-md-6 -->
+
+            </div><!-- col-md-12 -->
+
+        </div><!-- /row -->
+
+    </div><!-- /container -->
+
+{% endblock content %}

@@ -1,8 +1,15 @@
 from django.db import models
 from django.template.defaultfilters import slugify
-
 from django.conf import settings
+from datetime import date
 
+
+
+@property
+def is_past_due(self):
+    if date.today() > self.date:
+        return True
+    return False
 
 class TimeStampModel(models.Model):
     created = models.DateTimeField(auto_now_add=True)
@@ -30,12 +37,12 @@ class Cita(TimeStampModel):
     slug = models.SlugField(editable=False)
     summary = models.TextField(max_length=255)
     content = models.TextField()
-    category = models.ForeignKey(Category)
+    category = models.ForeignKey(Category,blank=True,null=True)
     place = models.CharField(max_length=50)
-    start = models.DateTimeField()
-    finish = models.DateTimeField()
-    imagen = models.ImageField(upload_to='events')
-    organizer = models.ForeignKey(settings.AUTH_USER_MODEL)
+    start = models.DateTimeField(blank=True,null=True)
+    finish = models.DateTimeField(blank=True,null=True)
+    imagen = models.ImageField(upload_to='citas',blank=True,null=True)
+    organizer = models.ForeignKey(settings.AUTH_USER_MODEL,blank=True, null=True)
 
     def save(self, *args, **kwargs):
         if not self.id:

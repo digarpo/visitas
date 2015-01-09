@@ -1,0 +1,60 @@
+{% extends "citas/base_citas.html" %}
+
+{% block title %}Acceso aplicación Syva{% endblock title %}
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <h1 class="text-center">Acceso Syva</h1>
+                <p>&nbsp;</p>
+
+            </div><!-- col-md-12 -->
+
+        </div><!-- /row -->
+
+        <div class="row">
+
+
+
+                <div class="col-sm-6 col-sm-offset-3">
+
+
+
+
+                    <form role="form">
+                        <p class="text-center">Accede al centro de coordinación</p>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Escribe tu nombre usuario">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Escribe tu contraseña">
+                        </div>
+                        <button type="submit" class="btn btn-success btn-lg btn-block">Accede</button>
+                    </form>
+                </div><!-- col-md-6 -->
+
+             <!--   <div class="col-md-push-3 col-md-3 text-left">
+                    <form role="form">
+                        <p class="text-center">Ingresa tus credenciales y accede al sistema web hecho en Django:</p>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Ingresa tu nombre usuario">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Escribe una contraseña">
+                        </div>
+                        <button type="submit" class="btn btn-success btn-lg btn-block">Log in</button>
+                    </form>
+                </div>&lt;!&ndash; col-md-6 &ndash;&gt;-->
+
+
+
+        </div><!-- /row -->
+
+    </div><!-- /container -->
+
+{% endblock content %}

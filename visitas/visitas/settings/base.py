@@ -18,6 +18,8 @@ ALLOWED_HOSTS = []
 
 DJANGO_APPS = (
 
+    'django_admin_bootstrapped.bootstrap3',
+    'django_admin_bootstrapped',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -35,6 +37,9 @@ LOCAL_APPS = (
 )
 
 THIRD_PARTY_APPS = (
+    'django_extensions',
+
+
 
 )
 
@@ -48,7 +53,12 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 )
+
+
+
+
 
 ROOT_URLCONF = 'visitas.urls'
 
