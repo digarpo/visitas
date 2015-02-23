@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
     url(r'^', include('apps.citas.urls', namespace="citas_app")),
     url(r'^', include('apps.usuarios.urls', namespace="usuarios_app")),
+     #url(r'^calendario/', include('django_bootstrap_calendar.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
 

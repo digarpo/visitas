@@ -9,6 +9,7 @@ urlpatterns = patterns('',
 
 
    url(r'^calendario/$',CalendarView.as_view(), name = 'calendario'),
+
    url(r'^coordinacion/$',CordinateView.as_view(), name = 'coordinacion'),
 
 url(r'^empresas/editar/(?P<pk>\d+)$', EditCita.as_view(), name='editar_usuario'),

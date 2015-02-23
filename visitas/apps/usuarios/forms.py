@@ -72,5 +72,17 @@ class UserForm(forms.ModelForm):
                     'placeholder': 'Introduce un avatar'})
         }
 
+class UserModfForm(forms.ModelForm):
+    class Meta:
+        model = User
+        exclude = ('created','modified',)
+        widgets = {
+            'username': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.Textarea(attrs={'class': 'form-control', 'rows': '2'}),
+            'first_name': forms.Textarea(attrs={'class': 'form-control', 'rows': '2'}),
+            'last_name': forms.Select(attrs={'class': 'form-control'}),
+            'avatar': forms.Select(attrs={'class': 'form-control'}),
+        }
+
 
 

@@ -7,7 +7,7 @@
     {% include "citas/panel/navbar.html" %}
 
      {% include "citas/panel/navmenu.html" %}
-          <nav role="navigation" class="navbar navbar-default">
+      <nav role="navigation" class="navbar navbar-default">
         <div class="navbar-header">
             <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
                 <span class="sr-only">Toggle navigation</span>
@@ -26,9 +26,23 @@
                 <li><a href="/panel/">Panel de visitas</a></li>
                 <li class="active"><a href="/calendario/">Calendario</a></li>
                 <li><a href="/coordinacion/">Coordinación</a></li>
-                <li><a href="/empresas/">Empresas</a></li>
+                 <li class="dropdown">
+                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Usuario <b class="caret"></b></a>
+                {% if user.is_company %}
+                    <ul class="dropdown-menu">
+                    <li><a href="{% url 'usuarios_app:detalle' user.id %}">Información de usuario</a></li>
+                        <li><a href="{% url 'usuarios_app:editar' user.id %}">Edición de usuario</a></li>
+                {% endif %}
+                </ul>
             </ul>
         </div>
+      </nav>
+            <div>
+            {% load bootstrap_calendar %}
+             {% bootstrap_controls 'optional-css-classes'   %}
 
-         </nav>
+              {% bootstrap_calendar 'optional-css-classes' %}
+
+            </div>
+
  {% endblock content %}

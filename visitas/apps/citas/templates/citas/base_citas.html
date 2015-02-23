@@ -1,14 +1,17 @@
 {% extends "base.html" %}
 
 {% load staticfiles %}
-
+{% load bootstrap_calendar %}
 {% block css %}
 	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
 	<link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+        {% bootstrap_calendar_css %}
 {% endblock css %}
 
 {% block js %}
     <script src="{% static 'js/jquery.js' %}"></script>
 	<script src="{% static 'js/bootstrap.js' %}"></script>
     <script src="{% static 'js/bootstrap-tab.js' %}"></script>
+         {% bootstrap_calendar_js language="es-ES" %}
+        {% bootstrap_calendar_init language="es-ES" %}
 {% endblock js %}

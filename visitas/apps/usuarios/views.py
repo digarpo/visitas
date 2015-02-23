@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout
-from .forms import UserRegisterForm, LoginForm
+from .forms import UserRegisterForm, LoginForm,UserModfForm
 from django.views.generic import UpdateView,DetailView
 from .models import User
 from .functions import LogIn
@@ -42,7 +42,7 @@ class EditUser(UpdateView):
     template_name = 'usuarios/editar_usuario.html'
     success_url = reverse_lazy('/')
     model = User
-    form_class = UserForm
+    form_class = UserModfForm
 
 
 class DetailUser(DetailView):

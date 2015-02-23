@@ -32,7 +32,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField()
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    avatar = models.ImageField(upload_to='users')
+    avatar = models.ImageField(upload_to='users',blank=True )
 
     objects = UserManager()
 
@@ -63,21 +63,18 @@ def get_short_name(self):
 class UserDepartment(User):
     departament = models.CharField(max_length=100)
 
+
     class Admin:
         pass
 
     def __unicode__(self):
-        return " %s" % (self.user.department)
-
-
+        return "%s" % (self.username)
 
 class UserCentral(User):
     plant = models.CharField(max_length=100)
 
     def __unicode__(self):
-        return "%s" % (self.user.plant)
-
-
+        return "%s" % (self.username)
 
 
 class UserCompany(User):
@@ -87,8 +84,8 @@ class UserCompany(User):
     phone = models.CharField(max_length=7)
     mobile = models.CharField(max_length=7)
     CIF = models.CharField(max_length=100)
-    activity = models.CharField(max_length=500)
-    revision = models.DateTimeField()
+    activity = models.CharField(max_length=500,blank=True)
+    #revision = models.DateTimeField(blank=True)
     subcontrate = models.CharField(max_length=100)
 
     class Admin:
@@ -99,17 +96,16 @@ class UserCompany(User):
 
 
 class UserWorkers(UserCompany):
-    nameWorker = models.CharField(max_length=100)
     TA2_date = models.DateTimeField()
-    TA2_doc = models.FileField(upload_to='usuarios')
+    TA2_doc = models.FileField(upload_to='usuarios',blank=True)
     medical = models.DateTimeField()
     information = models.DateTimeField()
     formation_date = models.DateTimeField()
     EPI_date = models.DateTimeField()
-    EPI_doc = models.FileField(upload_to='EPI')
-    medical_doc = models.FileField(upload_to='medical')
-    information_doc = models.FileField(upload_to='information')
-    skill_doc = models.FileField(upload_to='skill')
+    EPI_doc = models.FileField(upload_to='EPI',blank=True)
+    medical_doc = models.FileField(upload_to='medical',blank=True)
+    information_doc = models.FileField(upload_to='information',blank=True)
+    skill_doc = models.FileField(upload_to='skill',blank=True)
 
     class Admin:
         pass
@@ -120,12 +116,12 @@ class UserWorkers(UserCompany):
 
 class UserDocs(models.Model):
     user = models.ForeignKey(UserWorkers, unique=True)
-    TC2 = models.FileField(upload_to='TC2')
-    safe = models.FileField(upload_to='safe')
-    ssocial = models.FileField(upload_to='ssocial')
-    notETT = models.FileField(upload_to='notETT')
-    risk = models.FileField(upload_to='risk')
-    protection = models.FileField(upload_to='protection')
+    TC2 = models.FileField(upload_to='TC2',blank=True)
+    safe = models.FileField(upload_to='safe',blank=True)
+    ssocial = models.FileField(upload_to='ssocial',blank=True)
+    notETT = models.FileField(upload_to='notETT',blank=True)
+    risk = models.FileField(upload_to='risk',blank=True)
+    protection = models.FileField(upload_to='protection',blank=True)
     ICCo = models.CharField(max_length=100)
     ICSyva = models.CharField(max_length=100)
     PRL03 = models.CharField(max_length=100)
@@ -139,35 +135,35 @@ class UserDocs(models.Model):
 class UserAnexoTrobajo(models.Model):
     user = models.ForeignKey(UserCompany, unique=True)
 
-    FA = models.FileField(upload_to='anexosTR')
-    FB = models.FileField(upload_to='anexosTR')
-    F1 = models.FileField(upload_to='anexosTR')
-    F2 = models.FileField(upload_to='anexosTR')
-    F3 = models.FileField(upload_to='anexosTR')
-    F4 = models.FileField(upload_to='anexosTR')
-    F5 = models.FileField(upload_to='anexosTR')
-    F6 = models.FileField(upload_to='anexosTR')
-    F7 = models.FileField(upload_to='anexosTR')
-    F8 = models.FileField(upload_to='anexosTR')
-    F9 = models.FileField(upload_to='anexosTR')
-    F10 = models.FileField(upload_to='anexosTR')
-    F11 = models.FileField(upload_to='anexosTR')
-    F12 = models.FileField(upload_to='anexosTR')
-    F13 = models.FileField(upload_to='anexosTR')
-    F14 = models.FileField(upload_to='anexosTR')
-    F15 = models.FileField(upload_to='anexosTR')
-    F16 = models.FileField(upload_to='anexosTR')
-    F17 = models.FileField(upload_to='anexosTR')
-    F18 = models.FileField(upload_to='anexosTR')
-    F19 = models.FileField(upload_to='anexosTR')
-    F20 = models.FileField(upload_to='anexosTR')
-    F21 = models.FileField(upload_to='anexosTR')
-    F22 = models.FileField(upload_to='anexosTR')
-    F23 = models.FileField(upload_to='anexosTR')
-    F24 = models.FileField(upload_to='anexosTR')
-    F25 = models.FileField(upload_to='anexosTR')
-    F26 = models.FileField(upload_to='anexosTR')
-    F27 = models.FileField(upload_to='anexosTR')
+    FA = models.FileField(upload_to='anexosTR',blank=True)
+    FB = models.FileField(upload_to='anexosTR',blank=True)
+    F1 = models.FileField(upload_to='anexosTR',blank=True)
+    F2 = models.FileField(upload_to='anexosTR',blank=True)
+    F3 = models.FileField(upload_to='anexosTR',blank=True)
+    F4 = models.FileField(upload_to='anexosTR',blank=True)
+    F5 = models.FileField(upload_to='anexosTR',blank=True)
+    F6 = models.FileField(upload_to='anexosTR',blank=True)
+    F7 = models.FileField(upload_to='anexosTR',blank=True)
+    F8 = models.FileField(upload_to='anexosTR',blank=True)
+    F9 = models.FileField(upload_to='anexosTR',blank=True)
+    F10 = models.FileField(upload_to='anexosTR',blank=True)
+    F11 = models.FileField(upload_to='anexosTR',blank=True)
+    F12 = models.FileField(upload_to='anexosTR',blank=True)
+    F13 = models.FileField(upload_to='anexosTR',blank=True)
+    F14 = models.FileField(upload_to='anexosTR',blank=True)
+    F15 = models.FileField(upload_to='anexosTR',blank=True)
+    F16 = models.FileField(upload_to='anexosTR',blank=True)
+    F17 = models.FileField(upload_to='anexosTR',blank=True)
+    F18 = models.FileField(upload_to='anexosTR',blank=True)
+    F19 = models.FileField(upload_to='anexosTR',blank=True)
+    F20 = models.FileField(upload_to='anexosTR',blank=True)
+    F21 = models.FileField(upload_to='anexosTR',blank=True)
+    F22 = models.FileField(upload_to='anexosTR',blank=True)
+    F23 = models.FileField(upload_to='anexosTR',blank=True)
+    F24 = models.FileField(upload_to='anexosTR',blank=True)
+    F25 = models.FileField(upload_to='anexosTR',blank=True)
+    F26 = models.FileField(upload_to='anexosTR',blank=True)
+    F27 = models.FileField(upload_to='anexosTR',blank=True)
 
 
     def __unicode__(self):
@@ -177,38 +173,37 @@ class UserAnexoTrobajo(models.Model):
 class UserAnexoParque(models.Model):
     user = models.ForeignKey(UserCompany, unique=True)
 
-    IA = models.FileField(upload_to='anexosParque')
-    IB = models.FileField(upload_to='anexosParque')
-    I1 = models.FileField(upload_to='anexosParque')
-    I2 = models.FileField(upload_to='anexosParque')
-    I3 = models.FileField(upload_to='anexosParque')
-    I4 = models.FileField(upload_to='anexosParque')
-    I5 = models.FileField(upload_to='anexosParque')
-    I6 = models.FileField(upload_to='anexosParque')
-    I7 = models.FileField(upload_to='anexosParque')
-    I8 = models.FileField(upload_to='anexosParque')
-    I9 = models.FileField(upload_to='anexosParque')
-    I10 = models.FileField(upload_to='anexosParque')
-    I11 = models.FileField(upload_to='anexosParque')
-    I12 = models.FileField(upload_to='anexosParque')
-    I13 = models.FileField(upload_to='anexosParque')
-    I14 = models.FileField(upload_to='anexosParque')
-    I15 = models.FileField(upload_to='anexosParque')
-    I16 = models.FileField(upload_to='anexosParque')
-    I17 = models.FileField(upload_to='anexosParque')
-    I18 = models.FileField(upload_to='anexosParque')
-    I19 = models.FileField(upload_to='anexosParque')
-    I20 = models.FileField(upload_to='anexosParque')
-    I21 = models.FileField(upload_to='anexosParque')
-    I22 = models.FileField(upload_to='anexosParque')
-    I23 = models.FileField(upload_to='anexosParque')
-    I24 = models.FileField(upload_to='anexosParque')
-    I25 = models.FileField(upload_to='anexosParque')
-    I26 = models.FileField(upload_to='anexosParque')
-    I27 = models.FileField(upload_to='anexosParque')
-    I28 = models.FileField(upload_to='anexosParque')
-    I29 = models.FileField(upload_to='anexosParque')
-    I30 = models.FileField(upload_to='anexosParque')
+    IA = models.FileField(upload_to='anexosParque',blank=True)
+    IB = models.FileField(upload_to='anexosParque',blank=True)
+    I1 = models.FileField(upload_to='anexosParque',blank=True)
+    I3 = models.FileField(upload_to='anexosParque',blank=True)
+    I4 = models.FileField(upload_to='anexosParque',blank=True)
+    I5 = models.FileField(upload_to='anexosParque',blank=True)
+    I6 = models.FileField(upload_to='anexosParque',blank=True)
+    I7 = models.FileField(upload_to='anexosParque',blank=True)
+    I8 = models.FileField(upload_to='anexosParque',blank=True)
+    I9 = models.FileField(upload_to='anexosParque',blank=True)
+    I10 = models.FileField(upload_to='anexosParque',blank=True)
+    I11 = models.FileField(upload_to='anexosParque',blank=True)
+    I12 = models.FileField(upload_to='anexosParque',blank=True)
+    I13 = models.FileField(upload_to='anexosParque',blank=True)
+    I14 = models.FileField(upload_to='anexosParque',blank=True)
+    I15 = models.FileField(upload_to='anexosParque',blank=True)
+    I16 = models.FileField(upload_to='anexosParque',blank=True)
+    I17 = models.FileField(upload_to='anexosParque',blank=True)
+    I18 = models.FileField(upload_to='anexosParque',blank=True)
+    I19 = models.FileField(upload_to='anexosParque',blank=True)
+    I20 = models.FileField(upload_to='anexosParque',blank=True)
+    I21 = models.FileField(upload_to='anexosParque',blank=True)
+    I22 = models.FileField(upload_to='anexosParque',blank=True)
+    I23 = models.FileField(upload_to='anexosParque',blank=True)
+    I24 = models.FileField(upload_to='anexosParque',blank=True)
+    I25 = models.FileField(upload_to='anexosParque',blank=True)
+    I26 = models.FileField(upload_to='anexosParque',blank=True)
+    I27 = models.FileField(upload_to='anexosParque',blank=True)
+    I28 = models.FileField(upload_to='anexosParque',blank=True)
+    I29 = models.FileField(upload_to='anexosParque',blank=True)
+    I30 = models.FileField(upload_to='anexosParque',blank=True)
 
 
     def __unicode__(self):

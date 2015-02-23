@@ -39,4 +39,6 @@ body {
     .categorias a {
         display: block;
     }
+
+       {% bootstrap_calendar_css %}
 }

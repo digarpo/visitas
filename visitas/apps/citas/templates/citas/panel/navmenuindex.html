@@ -17,9 +17,12 @@
                 <li><a href="/coordinacion/">Coordinación</a></li>
                 <li class="dropdown">
                  <a href="#" data-toggle="dropdown" class="dropdown-toggle">Usuario <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                <li><a href="/usuario/informacion/">Información de usuario</a></li>
-                    <li><a href="/usuario/editar/">Edición de usuario</a></li>
+                {% if user.is_authenticated %}
+                    <ul class="dropdown-menu">
+                    <li><a href="{% url 'usuarios_app:detalle' user.id %}">Información de usuario</a></li>
+                        <li><a href="{% url 'usuarios_app:editar' user.id %}">Edición de usuario</a></li>
+                {% endif %}
+                </ul>
             </ul>
         </div>
 </nav>

@@ -1,4 +1,5 @@
 from unipath import Path
+from django.conf import global_settings
 
 BASE_DIR = Path(__file__).ancestor(3)
 
@@ -13,6 +14,10 @@ SECRET_KEY = '#(^d^2jmy^iq$*u(f!275hn5&18vulrsd4zr$ww((1#u2jkuf&'
 DEBUG = True
 
 TEMPLATE_DEBUG = True
+
+TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
+    "django.core.context_processors.request",
+)
 
 ALLOWED_HOSTS = []
 
@@ -38,6 +43,8 @@ LOCAL_APPS = (
 
 THIRD_PARTY_APPS = (
     'django_extensions',
+    'django_bootstrap_calendar',
+    'schedule',
 
 
 
@@ -54,8 +61,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-)
 
+)
 
 
 
