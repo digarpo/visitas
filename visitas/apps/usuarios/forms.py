@@ -12,12 +12,12 @@ class UserRegisterForm(forms.ModelForm):
                 {
                     'class' : 'form-control',
                     'placeholder' : 'Ingresa un nombre de usuario'}),
-                'email' : forms.TextInput(attrs =
+            'email' : forms.TextInput(attrs =
                 {
                     'type' : 'email',
                     'class' : 'form-control',
                     'placeholder' : 'Introduce un email'}),
-                'password' : forms.TextInput(attrs =
+            'password' : forms.TextInput(attrs =
                 {
                     'type' :'password',
                     'class' : 'form-control',

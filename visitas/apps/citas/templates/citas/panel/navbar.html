@@ -11,7 +11,7 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav pull-right">
-                <li><p class="navbar-text">Bienvenido, <a href="#" class="navbar-link">{{user.first_name|capfirst}}</a></p></li>
+                <li><p class="navbar-text">Bienvenido, <a href="#" class="navbar-link">{{user.username|capfirst}}</a></p></li>
                  <li><a href="{% url 'usuarios_app:logout' %}">Logout</a></li>
             </ul>
         </div><!--/.nav-collapse -->

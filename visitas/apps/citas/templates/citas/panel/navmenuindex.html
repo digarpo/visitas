@@ -13,8 +13,12 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/">Inicio</a></li>
                 <li><a href="/panel/">Panel de visitas</a></li>
+                {% if user.is_authenticated and user.is_staff or user.is_centralita %}
                 <li><a href="/calendario/">Calendario</a></li>
+                {% endif %}
+                {% if user.is_worker %}
                 <li><a href="/coordinacion/">Coordinación</a></li>
+                {% endif %}
                 <li class="dropdown">
                  <a href="#" data-toggle="dropdown" class="dropdown-toggle">Usuario <b class="caret"></b></a>
                 {% if user.is_authenticated %}

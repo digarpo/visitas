@@ -25,7 +25,9 @@
                     <thead>
                         <tr>
                             <th colspan="2">Nombre de la visita</th>
-                            <th>Categoría</th>
+                            <th>Lugar</th>
+                            <th>Usuario</th>
+                            <th>Empresa</th>
                             <th>Inicio</th>
                             <th>Fin</th>
 
@@ -33,13 +35,16 @@
                         </tr>
                     </thead>
                     <tbody>
+
                         {% for cita in citas %}
                         <tr>
                             <td>
                                 <img src="{{ cita.imagen.url }}" alt="{{ cita.name }}" width="60" class="img-rounded">
                             </td>
                             <td>{{ cita.name }}</td>
-                            <td>{{ cita.category }}</td>
+                            <td>{{ cita.place }}</td>
+                            <td>{{ cita.organizer }}</td>
+                             <td>{{ cita. }}</td>
                             <td>{{ cita.start }}</td>
                             <td>{{ cita.finish }}</td>
 

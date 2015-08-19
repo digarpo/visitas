@@ -3,7 +3,7 @@
 {% block title %}Inicio{% endblock title %}
 
 {% block content %}
-    
+
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -18,7 +18,7 @@
  <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav pull-right">
                 {% if user.is_authenticated %}
-                    <li><a href="{% url 'citas_app:panel' %}">Hola {{ user.username|capfirst }}</a></li>
+                    <li><a href="{% url 'citas_app:panel' %}">Hola {{ user.first_name |capfirst }}</a></li>
                      <li><a href="{% url 'usuarios_app:logout' %}">Logout</a></li>
                 {% else %}
                 <li><a href="{% url 'usuarios_app:login' %}">Entrar</a></li>
@@ -43,7 +43,7 @@
     </div>
 
     <div class="row">
-        
+
         <div class="col-md-2">
             <div class="input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-tag"></span></span>
@@ -66,34 +66,48 @@
 <p></p>
 
 <div class="container eventos">
-
+    {% if user.is_authenticated %}
     <div class="row contenedor-eventos">
-        {% for cita in citas %}
 
-    </div>
-    <div class="row contenedor-eventos">
-        <div class="col-sm-1 col-md-3 ">
-            <div class="thumbnail equal">
-                <img src="{{ cita.imagen.url }}" alt="250x180">
 
-                <div class="caption">
-                    <h4><a href="">{{ cita.name }}</a></h4>
-                    <small class="date">{{ cita.start }}</small>
-                    <div class="place">
-                        <small class="place">{{ cita.place}}</small>
-                        /
-                    </div>
-                    <span class="views">{{ cita.views }}</span>
-                </div>
-            </div>
-        </div>
+         </div>
+            <div class="row contenedor-eventos">
+                   {% for cita in citas %}
+                       {% if user.is_staff or user.is_coordinador or user.is_centralita %}
+                        <div class="col-sm-1 col-md-3 ">
+                            <div class="thumbnail equal">
+                                <img src="{{ cita.imagen.url }}" alt="250x180">
+                                <div class="caption">
+                                    <h4><a href="{% url 'citas_app:panel' %}">{{ cita.name }}</a></h4>
+                                    <small class="date">{{ cita.start }}</small>
+                                    <div class="place">
+                                        <small class="place">{{ cita.place}}</small> /
+                                    </div>
+                                    <span class="views">{{ cita.views }}</span>
+                                </div>
+                        </div>
 
+                        {% elif cita.organizer = user  %}
+                         <div class="col-sm-1 col-md-3 ">
+                            <div class="thumbnail equal">
+                                <img src="{{ cita.imagen.url }}" alt="250x180">
+                                <div class="caption">
+                                    <h4><a href="{% url 'citas_app:panel' %}">{{ cita.name }}</a></h4>
+                                    <small class="date">{{ cita.start }}</small>
+                                    <div class="place">
+                                        <small class="place">{{ cita.place}}</small> /
+                                    </div>
+                                    <span class="views">{{ cita.views }}</span>
+                                </div>
+                        </div>
+                        {% endif %}
+         </div>
         {% endfor %}
     </div>
-
+{% endif %}
 </div>
 
-<div class="container categorias">    
+<div class="container categorias">
 
     <div class="page-header">
         <h4><strong>Categorías relacionadas</strong></h4>
@@ -112,7 +126,7 @@
 
 </div>
 
-<div class="container organizadores">    
+<div class="container organizadores">
 
     <div class="page-header">
         <h4><strong>Organizadores destacados</strong></h4>
