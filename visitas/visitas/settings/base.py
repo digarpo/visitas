@@ -78,7 +78,7 @@ ROOT_URLCONF = 'visitas.urls'
 
 WSGI_APPLICATION = 'visitas.wsgi.application'
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-ES'
 
 TIME_ZONE = 'UTC'
 

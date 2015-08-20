@@ -2,7 +2,7 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from django.conf import settings
 from datetime import date
-# from apps.usuarios.models import UserCompany
+#from usuarios.models import UserCompany
 
 
 
@@ -45,7 +45,7 @@ class Cita(TimeStampModel):
     finish = models.DateTimeField(blank=True,null=True)
     imagen = models.ImageField(upload_to='citas',blank=True,null=True)
     organizer = models.ForeignKey(settings.AUTH_USER_MODEL,blank=True, null=True)
-   # empresa = models.ForeignKey('apps.usuarios.UserCompany')
+  # empresa = models.ForeignKey('usuarios.UserCompany')
 
     def save(self, *args, **kwargs):
         if not self.id:

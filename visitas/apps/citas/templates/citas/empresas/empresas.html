@@ -36,63 +36,7 @@
 
             <div class="col-md-12">
 
-                <form role="form" action="{% url 'usuarios_app:editar_usuario' usuario.id %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
-                    <p class="lead"><span class="glyphicon glyphicon-info-sign"></span> Edición de visitas.</p>
 
-                    {% if form.errors %}
-                        <div class="alert alert-danger" role="alert">
-                            {{ form.errors }}
-                        </div>
-                    {% endif %}
-
-                    <div class="form-group">
-                        <label>{{ form.name.label_tag }}</label>
-                        {{ form.name }}
-                    </div>
-
-                    <div class="form-group">
-                        <label>{{ form.summary.label_tag }}</label>
-                        {{ form.summary }}
-                    </div>
-
-                    <div class="form-group">
-                        <label>{{ form.content.label_tag }}</label>
-                        {{ form.content }}
-                    </div>
-
-                    <div class="form-group">
-                        <label>{{ form.category.label_tag }}</label>
-                        {{ form.category }}
-                    </div>
-
-                    <div class="form-group">
-                        <label>{{ form.place.label_tag }}</label>
-                        {{ form.place }}
-                    </div>
-
-                    <div class="form-group">
-                        <label>{{ form.start.label_tag }}</label>
-                        {{ form.start }}
-                        <p class="help-block">Inicio de visita. DD/MM/AA HH:MM:SS.</p>
-                    </div>
-
-                    <div class="form-group">
-                        <label>{{ form.finish.label_tag }}</label>
-                        {{ form.finish }}
-                        <p class="help-block">Fin de la visita. DD/MM/AA HH:MM:SS.</p>
-                    </div>
-
-                    <div class="form-group">
-                        <label>{{ form.imagen.label_tag }}</label>
-                        {{ form.imagen }}
-                    </div>
-
-
-
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Guardar visita</button>
-                    </div>
-                </form>
 
             </div><!-- col-md-12 -->
 

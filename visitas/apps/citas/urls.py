@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, url
-from .views import IndexView, MainPanelView, CreateCita, DetailCita, EditCita, DeleteCita, CalendarView,CordinateView
+from .views import IndexView, MainPanelView, CreateCita, DetailCita, EditCita, DeleteCita, CalendarView,CordinateView,EmpresaView
 
 
 urlpatterns = patterns('',
@@ -12,7 +12,7 @@ urlpatterns = patterns('',
 
    url(r'^coordinacion/$',CordinateView.as_view(), name = 'coordinacion'),
 
-url(r'^empresas/editar/(?P<pk>\d+)$', EditCita.as_view(), name='editar_usuario'),
+    url(r'^empresas/$', EmpresaView.as_view(), name='empresas'),
   #
   #   url(r'^panel/$', 'apps.citas.views.main_panel', name='panel'),
   #   url(r'^panel/cita/nuevo/$', 'apps.citas.views.crear_cita', name='nuevo'),

@@ -6,16 +6,45 @@
 
     {% include "citas/panel/navbar.html" %}
 
-    <div class="container">
+     {% include "citas/panel/navmenu.html" %}
 
-        <div class="page-header">
+
+
+
+         <div class="container">
+          <nav role="navigation" class="navbar navbar-default">
+             <div class="navbar-header">
+                <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a href="#" class="navbar-brand">Menú</a>
+            </div>
+
+
+            <div id="navbarCollapse" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li ><a href="/">Inicio</a></li>
+                    <li class="active"><a href="/panel/">Panel de visitas</a></li>
+                    <li><a href="/calendario/">Calendario</a></li>
+                    <li><a href="/coordinacion/">Coordinación</a></li>
+                    <li><a href="/empresas/">Empresas</a></li>
+                </ul>
+            </div>
+
+          </nav>
+
+             <div class="page-header">
             <h4>
                 <strong>Tienes <span class="label label-warning">{{ cantidad }}</span> visitas pendientes </strong>
                 <a class="btn btn-primary pull-right" href="{% url 'citas_app:nuevo' %}">
                     <span class="glyphicon glyphicon-plus"></span> Crear una nueva visita
                 </a>
             </h4>
-        </div><!-- page-header -->
+         </div><!-- page-header -->
 
         <div class="row">
             

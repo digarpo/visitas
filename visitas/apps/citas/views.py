@@ -123,4 +123,8 @@ class CordinateView(TemplateView):
 
     template_name='citas/coordinacion/coordinacion.html'
 
+class EmpresaView(TemplateView):
+
+    template_name='citas/empresas/empresas.html'
+
 
