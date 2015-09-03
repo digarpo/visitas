@@ -4,6 +4,7 @@ from .models import Cita, Category
 from apps.usuarios.models import User
 from .forms import CitaForm
 
+
 from django.core.urlresolvers import reverse, reverse_lazy
 
 # def index(request):
@@ -90,6 +91,7 @@ class EditCita(UpdateView):
     success_url = reverse_lazy('citas_app:panel')
     model = Cita
     form_class = CitaForm
+
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user

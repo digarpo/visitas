@@ -81,8 +81,37 @@ class UserModfForm(forms.ModelForm):
             'email': forms.Textarea(attrs={'class': 'form-control', 'rows': '2'}),
             'first_name': forms.Textarea(attrs={'class': 'form-control', 'rows': '2'}),
             'last_name': forms.Select(attrs={'class': 'form-control'}),
-            'avatar': forms.Select(attrs={'class': 'form-control'}),
+            'avatar': forms.ClearableFileInput(attrs={'class': 'form-control'}),
         }
 
+class CompanyDocsForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = {}
+        widgets = {
+            'TC2': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'safe': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'ssocial':forms.ClearableFileInput(attrs={'class': 'form-control'}),
+           # 'notETT':forms.Checkbox, choices =
+            'risk':forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'protection':forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'ICCo':forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'ICSyva':forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'PRL03':forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'PRL04':forms.ClearableFileInput(attrs={'class': 'form-control'}),
+        }
 
+class UserDocsWorkerForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = {}
+        widgets = {
+            #'TA2_date':
+            'TA2_doc':forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'medical':forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'EPI_doc':forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'medical_doc':forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'information_doc':forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'skill_doc':forms.ClearableFileInput(attrs={'class': 'form-control'}),
 
+        }

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout
-from .forms import UserRegisterForm, LoginForm,UserModfForm
+from .forms import UserRegisterForm, LoginForm,UserModfForm,CompanyDocsForm
 from django.views.generic import UpdateView,DetailView
 from .models import User
 from .functions import LogIn
@@ -41,8 +41,8 @@ def userregister(request):
 				User.objects.create_user(username = user_register.cleaned_data['username'],
 				 email = user_register.cleaned_data['email'],
 				 password = user_register.cleaned_data['password'],
-                 first_name = user_register.cleaned_data['first_name'],
-                 last_name = user_register.cleaned_data['last_name']
+                 # first_name = user_register.cleaned_data['first_name'],
+                 # last_name = user_register.cleaned_data['last_name']
                 )
 				LogIn(request, user_register.cleaned_data['username'],
 						user_register.cleaned_data['password'])
@@ -77,3 +77,9 @@ class EditUser(UpdateView):
 class DetailUser(DetailView):
     template_name = 'usuarios/detalle_usuario.html'
     model = User
+
+class EditCompanyDocs(UpdateView):
+    template_name = 'usuarios/editar_usuario.html'
+    success_url = reverse_lazy('/')
+    model = User
+    form_class = CompanyDocsForm

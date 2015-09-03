@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, url, include
-from .views import EditUser, DetailUser
+from .views import EditUser, DetailUser, EditCompanyDocs
 
 urlpatterns = patterns('',
             url(r'^login/$', 'apps.usuarios.views.userlogin', name="login"),
@@ -25,7 +25,9 @@ urlpatterns = patterns('',
             url(r'^salir/$', 'apps.usuarios.views.LogOut', name="logout"),
 
             url(r'^usuario/editar/(?P<pk>\d+)/$', EditUser.as_view(), name = 'editar'),
-            url(r'^usuario/informacion/(?P<pk>\d+)/$', DetailUser.as_view(), name = 'detalle')
+            url(r'^usuario/informacion/(?P<pk>\d+)/$', DetailUser.as_view(), name = 'detalle'),
+         #   url(r'^usuario/editar/(?P<pk>\d+)/$', EditCompanyDocs.as_view(), name = 'editar_company')
+
 )
 
 

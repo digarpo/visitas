@@ -30,7 +30,7 @@ class UserManager(BaseUserManager, models.Manager):
 class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=100, unique=True)
     email = models.EmailField()
-    first_name = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=100,blank=True)
     last_name = models.CharField(max_length=100)
     avatar = models.ImageField(upload_to='users',blank=True )
 
