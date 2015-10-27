@@ -1,6 +1,6 @@
 from django import forms
 from .models import Cita
-
+#from usuarios.models import User
 
 class CitaForm(forms.ModelForm):
     class Meta:

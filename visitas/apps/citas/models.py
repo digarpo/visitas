@@ -2,7 +2,6 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from django.conf import settings
 from datetime import date
-#from usuarios.models import UserCompany
 
 
 
@@ -74,4 +73,4 @@ class Comments(TimeStampModel):
     content = models.TextField()
 
     def __unicode__(self):
-        return "%s %s" % (self.user.username, self.event.name)
+        return "%s %s" % (self.user.username, self.cita.name)

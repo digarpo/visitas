@@ -37,6 +37,7 @@ DJANGO_APPS = (
 LOCAL_APPS = (
     'apps.citas',
     'apps.usuarios',
+    'apps.docs',
 
 
 )

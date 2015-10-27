@@ -1,13 +1,8 @@
 from django.contrib import admin
-from .models import User, UserCompany, UserWorkers, UserDepartment, UserCentral, UserDocs, UserAnexoTrobajo, UserAnexoParque
+from .models import User, UserCompany, UserWorkers, UserDepartment, UserCentral, UserDocs
 from .actions import export_as_excel
 
 
-class DocsEnLinea(admin.StackedInline):
-    model = UserAnexoTrobajo
-
-class DocsEnLineaParque(admin.StackedInline):
-    model = UserAnexoParque
 
 class DocsEnLineaUser(admin.StackedInline):
     model = UserDocs
@@ -56,7 +51,7 @@ class Company(admin.ModelAdmin):
     ordering = ('username',)
     filter_horizontal = ('groups', 'user_permissions')
     actions = [export_as_excel]
-    inlines = [DocsEnLinea,DocsEnLineaParque ]
+
 
     fieldsets = (
         ('Usuario', {'fields': ('username', 'password')}),
